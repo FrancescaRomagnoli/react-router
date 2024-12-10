@@ -8,6 +8,7 @@ import DefaultLayout from "./layouts/DefaultLayout";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import PostsPage from "./pages/PostsPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,6 +22,7 @@ function App() {
             <Route path="/about" Component={AboutPage} />
             <Route path="/posts" Component={PostsPage} />
           </Route>
+          <Route path="*" Component={NotFoundPage} />
         </Routes>
       </BrowserRouter>
     </>
