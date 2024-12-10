@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // pages import
 import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import PostsPage from "./pages/PostsPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,6 +14,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index Component={HomePage} />
+          <Route path="/about" Component={AboutPage} />
+          <Route path="/posts" Component={PostsPage} />
         </Routes>
       </BrowserRouter>
     </>
