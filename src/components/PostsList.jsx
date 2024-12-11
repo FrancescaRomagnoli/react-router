@@ -17,6 +17,22 @@ export default function PostsList() {
     fetchPosts();
   }, []);
 
+  // # posts delete
+
+  const fetchDeletePost = (id) => {
+    const deleteUrl = `http://localhost:3000/posts/${id}`;
+
+    fetch(deleteUrl, { method: "DELETE" })
+      .then((res) => res.json())
+      .then(() => {
+        fetchPosts();
+      });
+  };
+
+  const handleDeletePostButton = (id) => {
+    fetchDeletePost(id);
+  };
+
   return (
     <>
       <div className="row">
@@ -24,7 +40,14 @@ export default function PostsList() {
           postsList.map((post) => {
             return (
               <div key={post.id} className="col col-4 my-3">
-                <div className="card h-100">
+                <div className="post-card card h-100">
+                  <button
+                    onClick={() => handleDeletePostButton(post.id)}
+                    data-bs-theme="dark"
+                    type="button"
+                    className="btn-close"
+                    aria-label="Close"
+                  ></button>
                   <img
                     src={`${post.image}`}
                     className="card-img-top"

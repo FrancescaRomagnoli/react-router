@@ -1,0 +1,9 @@
+.post-card {
+  position: relative;
+}
+
+.post-card > .btn-close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
