@@ -5,7 +5,7 @@ export default function PostDetail() {
   const postId = useParams().id;
   const postsUrl = "http://localhost:3000/posts";
 
-  const [post, setPost] = useState();
+  const [post, setPost] = useState(null);
 
   useEffect(() => {
     fetchPost(postId);
@@ -22,8 +22,16 @@ export default function PostDetail() {
 
   return (
     <div>
-      <h2>{post.title}</h2>
-      <p>{post.description}</p>
+      {post ? (
+        <>
+          <div>{post.title}</div>
+          <div>{post.description}</div>
+        </>
+      ) : (
+        <>
+          <div>loading post</div>
+        </>
+      )}
     </div>
   );
 }
