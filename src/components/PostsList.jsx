@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function PostsList() {
   const [postsList, setPostsList] = useState([]);
@@ -32,6 +33,9 @@ export default function PostsList() {
                   <div className="card-body">
                     <h5 className="card-title">{post.title}</h5>
                     <p className="card-text">{post.description}</p>
+                    <Link to={`/posts/${post.id}`}>
+                      <button className="btn btn-info">Read More</button>
+                    </Link>
                   </div>
                 </div>
               </div>
