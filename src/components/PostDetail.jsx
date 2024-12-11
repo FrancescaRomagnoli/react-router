@@ -24,8 +24,21 @@ export default function PostDetail() {
     <div>
       {post ? (
         <>
-          <div>{post.title}</div>
-          <div>{post.description}</div>
+          <h1 className="mt-5 mb-3">{post.title}</h1>
+          <div className="link-secondary mb-3">{post.category}</div>
+          <div className="d-flex justify-content-center">
+            <img src={post.image}></img>
+          </div>
+          <p className="my-3">{post.description}</p>
+          <div>
+            {post.tags.map((tag) => {
+              return (
+                <>
+                  <span className="badge text-bg-secondary me-2">{tag}</span>
+                </>
+              );
+            })}
+          </div>
         </>
       ) : (
         <>
